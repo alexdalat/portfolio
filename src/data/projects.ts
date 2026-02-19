@@ -392,16 +392,6 @@ export const projects: Project[] = [
     date: "2019-09-14",
     github: "https://github.com/alexdalat/founders-api",
   },
-  {
-    slug: "ahk-scripts",
-    title: "AHK Scripts",
-    description:
-      "Useful AutoHotkey auto-clicking scripts for AFKing in games.",
-    category: "Extensions & Bots",
-    tags: ["Automation"],
-    date: "2021-09-08",
-    github: "https://github.com/alexdalat/AHK-scripts",
-  },
 
   // ─── Vision & Graphics ────────────────────────────────────────────────
   {
@@ -635,24 +625,6 @@ export const projects: Project[] = [
     category: "Websites",
     tags: ["JavaScript", "Web"],
     date: "2025-11-13",
-  },
-  {
-    slug: "xeladarocks",
-    title: "Personal Website v1",
-    description: "First personal portfolio website.",
-    category: "Websites",
-    tags: ["JavaScript", "Web"],
-    date: "2020-05-13",
-    github: "https://github.com/alexdalat/xeladarocks.github.io",
-  },
-  {
-    slug: "madein",
-    title: "Made In",
-    description: "A web project exploring origins and creation.",
-    category: "Websites",
-    tags: ["JavaScript", "Web"],
-    date: "2023-08-26",
-    github: "https://github.com/alexdalat/madein",
   },
 ];
 
