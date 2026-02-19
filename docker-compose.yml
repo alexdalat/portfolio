@@ -1,10 +1,10 @@
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  portfolio:
+    image: ghcr.io/alexdalat/portfolio:latest
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
