@@ -20,6 +20,7 @@ export interface Project {
   date: string; // ISO date string
   github?: string;
   url?: string;
+  image?: string;
 }
 
 export const projects: Project[] = [
