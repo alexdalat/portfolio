@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface ProjectImageProps {
   slug: string;
@@ -20,7 +20,14 @@ export function ProjectImage({
   fallbackClassName = "select-none text-xl font-semibold text-muted-foreground/50",
 }: ProjectImageProps) {
   const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
+  const imgRef = useRef<HTMLImageElement>(null);
   const imagePath = `/projects/${slug}.png`;
+
+  useEffect(() => {
+    if (imgRef.current?.complete && imgRef.current?.naturalWidth > 0) {
+      setStatus("loaded");
+    }
+  }, []);
 
   return (
     <>
@@ -29,6 +36,7 @@ export function ProjectImage({
       )}
       {status !== "error" && (
         <img
+          ref={imgRef}
           src={imagePath}
           alt={title}
           className={`${className} ${status === "loading" ? "absolute opacity-0" : ""}`}
@@ -49,7 +57,14 @@ export function ProjectImageMini({
   className = "h-full w-full object-cover",
 }: Omit<ProjectImageProps, "fallbackClassName">) {
   const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
+  const imgRef = useRef<HTMLImageElement>(null);
   const imagePath = `/projects/${slug}.png`;
+
+  useEffect(() => {
+    if (imgRef.current?.complete && imgRef.current?.naturalWidth > 0) {
+      setStatus("loaded");
+    }
+  }, []);
 
   const initials = title
     .split(" ")
@@ -66,6 +81,7 @@ export function ProjectImageMini({
       )}
       {status !== "error" && (
         <img
+          ref={imgRef}
           src={imagePath}
           alt={title}
           className={`${className} ${status === "loading" ? "absolute opacity-0" : ""}`}

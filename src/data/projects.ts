@@ -1,12 +1,13 @@
 export type Category =
+  | "Websites"
   | "ML"
-  | "Games"
+  | "Vision & Graphics"
   | "Tools"
   | "Algorithms"
   | "Finance"
   | "Extensions & Bots"
-  | "Vision & Graphics"
-  | "Websites";
+  | "Games"
+;
 
 export type SubCategory = "RL" | null;
 
@@ -39,7 +40,7 @@ export const projects: Project[] = [
     slug: "ai-autocomplete",
     title: "AI Autocomplete",
     description:
-      "An intelligent autocomplete system powered by machine learning.",
+      "An intelligent autocomplete system for the browser, powered by machine learning.",
     category: "ML",
     tags: ["Python", "ML/AI"],
     date: "2025-10-25",
@@ -56,8 +57,8 @@ export const projects: Project[] = [
     github: "https://github.com/alexdalat/digit-classifier-pytorch",
   },
   {
-    slug: "digit-classifier",
-    title: "Digit Classifier",
+    slug: "digit-classifier-tf",
+    title: "Digit Classifier (TensorFlow)",
     description:
       "Handwritten digit classification model trained on MNIST dataset.",
     category: "ML",
@@ -73,16 +74,6 @@ export const projects: Project[] = [
     tags: ["Python", "ML/AI"],
     date: "2023-01-31",
     github: "https://github.com/alexdalat/digit-denoiser",
-  },
-  {
-    slug: "neural-network-visual",
-    title: "Neural Network Visualizer",
-    description:
-      "Interactive visualization of a neural network with mathematical explanation and proof.",
-    category: "ML",
-    tags: ["JavaScript", "ML/AI", "Data"],
-    date: "2022-10-25",
-    github: "https://github.com/alexdalat/neural-network-visual",
   },
   {
     slug: "traffic-signs-v1",
@@ -148,17 +139,6 @@ export const projects: Project[] = [
     date: "2024-07-25",
     github: "https://github.com/alexdalat/dqn-tests",
   },
-  {
-    slug: "rl-gridworld",
-    title: "RL Gridworld",
-    description:
-      "Reinforcement learning agent trained on a gridworld environment.",
-    category: "ML",
-    subCategory: "RL",
-    tags: ["Python", "RL"],
-    date: "2025-05-09",
-    github: "https://github.com/alexdalat/rl-gridworld",
-  },
 
   // ─── Games ─────────────────────────────────────────────────────────────
   {
@@ -180,15 +160,6 @@ export const projects: Project[] = [
     tags: ["Python", "Computer Vision", "Automation"],
     date: "2021-09-08",
     github: "https://github.com/alexdalat/karuta-auto",
-  },
-  {
-    slug: "conversation-game",
-    title: "Conversation Game",
-    description:
-      "An interactive conversation-based game experience.",
-    category: "Games",
-    tags: ["Python", "ML/AI", "Gaming"],
-    date: "2025-05-07",
   },
 
   // ─── Tools ─────────────────────────────────────────────────────────────
@@ -226,7 +197,7 @@ export const projects: Project[] = [
     slug: "loc-tracker",
     title: "Location Tracker",
     description:
-      "High-accuracy location data tracking and processing system.",
+      "High-accuracy location data personal tracking system.",
     category: "Tools",
     tags: ["Python", "Data"],
     date: "2025-09-27",
@@ -241,15 +212,6 @@ export const projects: Project[] = [
     date: "2025-10-09",
   },
   {
-    slug: "pdf-pentest",
-    title: "PDF Pentest",
-    description:
-      "PDF pentesting toolkit for security analysis and vulnerability assessment.",
-    category: "Tools",
-    tags: ["Python", "Security"],
-    date: "2025-10-09",
-  },
-  {
     slug: "eecs281-makefile",
     title: "EECS281 Makefile",
     description:
@@ -258,15 +220,6 @@ export const projects: Project[] = [
     tags: ["C++", "Automation"],
     date: "2024-06-24",
     github: "https://github.com/alexdalat/EECS281-Makefile",
-  },
-  {
-    slug: "ticketmaster-events",
-    title: "Ticketmaster Events",
-    description:
-      "Event discovery and tracking tool using the Ticketmaster API.",
-    category: "Tools",
-    tags: ["JavaScript", "API", "Web"],
-    date: "2024-12-07",
   },
 
   // ─── Algorithms ────────────────────────────────────────────────────────
@@ -321,23 +274,13 @@ export const projects: Project[] = [
     tags: ["Python", "Trading", "RL"],
     date: "2025-08-03",
   },
-  {
-    slug: "first-aio",
-    title: "GPU AIO Bot",
-    description:
-      "Automated purchasing bot built to combat scalper bots during the COVID GPU shortage crisis.",
-    category: "Finance",
-    tags: ["Python", "Automation"],
-    date: "2021-09-08",
-    github: "https://github.com/alexdalat/first-aio",
-  },
 
   // ─── Extensions & Bots ────────────────────────────────────────────────
   {
     slug: "validator-v2",
     title: "Validator Bot v2",
     description:
-      "An all-inclusive Discord assistant bot for supporting staff in user validation workflows.",
+      "A Discord assistant bot for supporting staff in user validation.",
     category: "Extensions & Bots",
     tags: ["JavaScript", "Discord", "Automation"],
     date: "2024-07-06",
@@ -352,35 +295,6 @@ export const projects: Project[] = [
     tags: ["JavaScript", "Discord", "Automation"],
     date: "2020-08-20",
     github: "https://github.com/alexdalat/validator",
-  },
-  {
-    slug: "msu-grades-ext",
-    title: "MSU Grades Extension",
-    description:
-      "Browser extension for viewing MSU grade distributions.",
-    category: "Extensions & Bots",
-    tags: ["JavaScript", "Extension"],
-    date: "2023-03-21",
-    github: "https://github.com/alexdalat/msu-grades-ext",
-  },
-  {
-    slug: "bedbotbug",
-    title: "BedBotBug",
-    description:
-      "A Hypixel BedWars resource calculator bot for Discord.",
-    category: "Extensions & Bots",
-    tags: ["JavaScript", "Discord", "Gaming"],
-    date: "2018-12-16",
-    github: "https://github.com/alexdalat/BedBotBug",
-  },
-  {
-    slug: "counter-bot",
-    title: "Counter Bot",
-    description: "A Discord bot that counts and tracks things.",
-    category: "Extensions & Bots",
-    tags: ["JavaScript", "Discord"],
-    date: "2018-12-16",
-    github: "https://github.com/alexdalat/Counter-Bot",
   },
   {
     slug: "founders-api",
@@ -447,7 +361,7 @@ export const projects: Project[] = [
     slug: "contour-js",
     title: "Contour.js",
     description:
-      "Contour high-contrast images using a simple, interactive webpage.",
+      "Edge detection on images using a simple, interactive webpage.",
     category: "Vision & Graphics",
     tags: ["JavaScript", "Graphics"],
     date: "2021-11-23",
@@ -559,15 +473,6 @@ export const projects: Project[] = [
     github: "https://github.com/alexdalat/jsgravitation",
   },
   {
-    slug: "gol-py",
-    title: "Game of Life",
-    description: "Conway's Game of Life implementation in Python.",
-    category: "Vision & Graphics",
-    tags: ["Python", "Simulation"],
-    date: "2021-03-20",
-    github: "https://github.com/alexdalat/gol_py",
-  },
-  {
     slug: "map-generator",
     title: "Biome Map Generator",
     description:
@@ -579,26 +484,6 @@ export const projects: Project[] = [
   },
 
   // ─── Websites ──────────────────────────────────────────────────────────
-  {
-    slug: "msugrades",
-    title: "MSU Grades",
-    description:
-      "A website for exploring MSU course grade distributions.",
-    category: "Websites",
-    tags: ["JavaScript", "Web", "Data"],
-    date: "2023-03-12",
-    github: "https://github.com/alexdalat/msugrades",
-  },
-  {
-    slug: "hytalehub",
-    title: "HytaleHub",
-    description:
-      "A community website for a server of the Hytale game.",
-    category: "Websites",
-    tags: ["JavaScript", "Web"],
-    date: "2021-06-24",
-    github: "https://github.com/alexdalat/hytalehub",
-  },
   {
     slug: "chat-rooms",
     title: "Chat Rooms",
@@ -619,24 +504,25 @@ export const projects: Project[] = [
     github: "https://github.com/alexdalat/mcpanel",
   },
   {
-    slug: "cafe-network",
-    title: "Café Network",
-    description: "A café-themed web networking application.",
+    slug: "cafe-chronicles",
+    title: "Café Chronicles",
+    description: "Discover, rate, and find your perfect local coffee shop. Explore top-rated cafes and compare your taste with others.",
     category: "Websites",
     tags: ["JavaScript", "Web"],
     date: "2025-11-13",
+    github: "https://cafechronicles.net",
   },
 ];
 
 export const categories: Category[] = [
   "ML",
-  "Games",
+  "Websites",
+  "Vision & Graphics",
   "Tools",
   "Algorithms",
   "Finance",
   "Extensions & Bots",
-  "Vision & Graphics",
-  "Websites",
+  "Games",
 ];
 
 export function getProjectsByCategory(cat: Category): Project[] {
