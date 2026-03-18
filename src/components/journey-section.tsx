@@ -17,8 +17,8 @@ const milestones = [
     status: "upcoming" as const,
   },
   {
-    id: "okemos",
-    title: "International Academy of Okemos",
+    id: "ia",
+    title: "International Academy of Bloomfield Hills",
     subtitle: "High School",
     date: "May 2022",
     status: "completed" as const,
