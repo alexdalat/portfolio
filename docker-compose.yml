@@ -3,6 +3,8 @@ services:
     image: ghcr.io/alexdalat/portfolio:latest
     ports:
       - "3000:3000"
+    volumes:
+      - ${PORTFOLIO_PUBLIC_DIR:-./public}:/app/public:ro
     environment:
       - NODE_ENV=production
     restart: unless-stopped
