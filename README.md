@@ -16,25 +16,26 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Docker Production Runtime public/
+## Docker Production Runtime resume.pdf
 
 This app serves `/resume` via a rewrite to `/resume.pdf` in `public/`.
 
-When running with Docker Compose, `public/` is mounted into the container at runtime:
+When running with Docker Compose, only `resume.pdf` is mounted into the container at runtime.
+This keeps all other files that were baked into the image under `public/`.
 
 ```yaml
 volumes:
-  - ${PORTFOLIO_PUBLIC_DIR:-./public}:/app/public:ro
+  - ${PORTFOLIO_RESUME_FILE:-./public/Resume.pdf}:/app/public/resume.pdf:ro
 ```
 
-Set `PORTFOLIO_PUBLIC_DIR` on your production host to the directory you want the container to serve.
+Set `PORTFOLIO_RESUME_FILE` on your production host to the resume file you want to serve.
 
 Example:
 
 ```bash
-export PORTFOLIO_PUBLIC_DIR=/srv/portfolio/public
+export PORTFOLIO_RESUME_FILE=/srv/portfolio/public/Resume.pdf
 docker compose up -d
 ```
 
-To make resume updates live without rebuilding the image, place or symlink `resume.pdf` inside that host directory.
-Any change to the target file is served by the running container immediately.
+To make resume updates live without rebuilding the image, point this to a real file or symlink.
+Any change to the target file is served by the running container immediately while all other bundled assets remain available.
