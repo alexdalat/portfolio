@@ -4,7 +4,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ${PORTFOLIO_RESUME_FILE:-./public/Resume.pdf}:/app/public/resume.pdf:ro
+      - ./public/Resume/:/app/public/Resume/:ro
     environment:
       - NODE_ENV=production
     restart: unless-stopped
