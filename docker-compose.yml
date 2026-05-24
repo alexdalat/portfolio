@@ -4,8 +4,7 @@ services:
     ports:
       - "${PORT_BIND:-3000}:3000"
     volumes:
-      - ./public/Resume/:/app/public/Resume/:ro
-      - /home/alex/syncthing/Personal/Work/Resume/:/home/alex/syncthing/Personal/Work/Resume/:ro
+      - /home/alex/syncthing/Personal/Work/Resume/:/app/public/Resume/:ro
     environment:
       - NODE_ENV=production
     restart: unless-stopped
