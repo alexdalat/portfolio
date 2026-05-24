@@ -2,9 +2,10 @@ services:
   portfolio:
     image: ghcr.io/alexdalat/portfolio:latest
     ports:
-      - "3000:3000"
+      - "${PORT:-3000}:3000"
     volumes:
       - ./public/Resume/:/app/public/Resume/:ro
+      - "${RESUME_MOUNT:-./public/Resume/:/home/alex/syncthing/Personal/Work/Resume/:ro}"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
