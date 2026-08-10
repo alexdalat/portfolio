@@ -1,45 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { GraduationCap } from "lucide-react";
+import { milestones } from "@/data/milestones";
 
-interface JourneySectionProps {
-  onViewTimeline: () => void;
-}
-
-const milestones = [
-  {
-    id: "uofm",
-    title: "University of Michigan",
-    subtitle: "B.S. Computer Science",
-    date: "May 2026",
-    status: "upcoming" as const,
-  },
-  {
-    id: "ia",
-    title: "International Academy of Bloomfield Hills",
-    subtitle: "High School",
-    date: "May 2022",
-    status: "completed" as const,
-  },
-];
-
-export function JourneySection({ onViewTimeline }: JourneySectionProps) {
+export function JourneySection() {
   return (
     <section className="border-t border-border/40 py-12">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="flex items-center justify-between mb-6">
+        <div className="mb-6">
           <h2 className="text-lg font-semibold text-foreground">Education</h2>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={onViewTimeline}
-            className="gap-1.5 text-muted-foreground hover:text-foreground"
-          >
-            <Clock className="size-3.5" />
-            View full timeline
-          </Button>
         </div>
 
         <div className="relative">
@@ -106,7 +76,7 @@ export function JourneySection({ onViewTimeline }: JourneySectionProps) {
                         </h3>
                         {milestone.status === "upcoming" && (
                           <span className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-medium text-primary">
-                            Soon
+                            Current
                           </span>
                         )}
                       </div>
@@ -114,7 +84,11 @@ export function JourneySection({ onViewTimeline }: JourneySectionProps) {
                         {milestone.subtitle}
                       </p>
                       <p className="text-xs text-muted-foreground/70 mt-1">
-                        {milestone.date}
+                        {new Date(milestone.date).toLocaleDateString("en-US", {
+                          month: "long",
+                          year: "numeric",
+                          timeZone: "UTC",
+                        })}
                       </p>
                     </div>
                   </div>

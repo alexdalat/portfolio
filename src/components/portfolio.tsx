@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { Clock, LayoutGrid } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { JourneySection } from "@/components/journey-section";
@@ -12,6 +13,7 @@ import {
   type ViewMode,
 } from "@/components/filter-sort-bar";
 import { ContactForm } from "@/components/contact-form";
+import { Button } from "@/components/ui/button";
 import {
   categories,
   getAllTagsWithCounts,
@@ -32,8 +34,6 @@ function sortProjects(list: Project[], sortBy: SortOption): Project[] {
       return sorted.sort(
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
       );
-    case "tags":
-      return sorted.sort((a, b) => b.tags.length - a.tags.length);
     default:
       return sorted;
   }
@@ -105,7 +105,7 @@ export function Portfolio({ projects }: PortfolioProps) {
       <Navbar />
       <Hero />
 
-      <JourneySection onViewTimeline={() => setViewMode("timeline")} />
+      <JourneySection />
 
       {/* Projects */}
       <section className="pb-16">
@@ -120,11 +120,26 @@ export function Portfolio({ projects }: PortfolioProps) {
                 {searchQuery || tagFilter !== "all" ? " found" : ""}
               </p>
             </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() =>
+                setViewMode((current) =>
+                  current === "timeline" ? "grid" : "timeline"
+                )
+              }
+              className="gap-1.5 text-muted-foreground hover:text-foreground"
+            >
+              {viewMode === "timeline" ? (
+                <LayoutGrid className="size-3.5" />
+              ) : (
+                <Clock className="size-3.5" />
+              )}
+              {viewMode === "timeline" ? "View Summary" : "View Timeline"}
+            </Button>
           </div>
 
           <FilterSortBar
-            viewMode={viewMode}
-            onViewModeChange={setViewMode}
             sortBy={sortBy}
             onSortChange={setSortBy}
             searchQuery={searchQuery}

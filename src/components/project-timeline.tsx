@@ -5,40 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { ProjectImageMini } from "@/components/project-image";
 import { ExternalLink, GraduationCap } from "lucide-react";
+import { milestones, type Milestone } from "@/data/milestones";
 import type { Project } from "@/data/projects";
-
-// Milestone events (education, etc.)
-interface Milestone {
-  type: "milestone";
-  id: string;
-  title: string;
-  subtitle: string;
-  date: string;
-  icon: "graduation";
-}
-
-const milestones: Milestone[] = [
-  {
-    type: "milestone",
-    id: "uofm-graduation",
-    title: "University of Michigan",
-    subtitle: "B.S. Computer Science — Ann Arbor",
-    date: "2026-05-01",
-    icon: "graduation",
-  },
-  {
-    type: "milestone",
-    id: "ia-graduation",
-    title: "International Academy of Bloomfield Hills",
-    subtitle: "High School Diploma",
-    date: "2022-05-15",
-    icon: "graduation",
-  },
-];
 
 type TimelineEvent =
   | (Project & { type: "project" })
-  | Milestone;
+  | (Milestone & { type: "milestone" });
 
 interface ProjectTimelineProps {
   projects: Project[];
@@ -48,7 +20,10 @@ export function ProjectTimeline({ projects }: ProjectTimelineProps) {
   // Merge projects and milestones into a single timeline
   const allEvents: TimelineEvent[] = [
     ...projects.map((p) => ({ ...p, type: "project" as const })),
-    ...milestones,
+    ...milestones.map((milestone) => ({
+      ...milestone,
+      type: "milestone" as const,
+    })),
   ];
 
   // Sort by date descending

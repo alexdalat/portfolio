@@ -1,7 +1,6 @@
 "use client";
 
-import { LayoutGrid, Clock, ArrowUpDown, Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpDown, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -12,12 +11,10 @@ import {
 } from "@/components/ui/select";
 import type { TagWithCount } from "@/data/projects";
 
-export type SortOption = "title" | "date-asc" | "date-desc" | "tags";
+export type SortOption = "title" | "date-asc" | "date-desc";
 export type ViewMode = "grid" | "timeline";
 
 interface FilterSortBarProps {
-  viewMode: ViewMode;
-  onViewModeChange: (mode: ViewMode) => void;
   sortBy: SortOption;
   onSortChange: (sort: SortOption) => void;
   searchQuery: string;
@@ -28,8 +25,6 @@ interface FilterSortBarProps {
 }
 
 export function FilterSortBar({
-  viewMode,
-  onViewModeChange,
   sortBy,
   onSortChange,
   searchQuery,
@@ -40,7 +35,7 @@ export function FilterSortBar({
 }: FilterSortBarProps) {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center">
         <div className="relative">
           <Search className="absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -82,28 +77,9 @@ export function FilterSortBar({
             <SelectItem value="date-desc">Newest first</SelectItem>
             <SelectItem value="date-asc">Oldest first</SelectItem>
             <SelectItem value="title">Title A–Z</SelectItem>
-            <SelectItem value="tags">By tag count</SelectItem>
           </SelectContent>
         </Select>
 
-        <div className="flex rounded-md border border-border">
-          <Button
-            variant={viewMode === "grid" ? "secondary" : "ghost"}
-            size="icon-xs"
-            onClick={() => onViewModeChange("grid")}
-            className="rounded-r-none"
-          >
-            <LayoutGrid className="size-3.5" />
-          </Button>
-          <Button
-            variant={viewMode === "timeline" ? "secondary" : "ghost"}
-            size="icon-xs"
-            onClick={() => onViewModeChange("timeline")}
-            className="rounded-l-none"
-          >
-            <Clock className="size-3.5" />
-          </Button>
-        </div>
       </div>
     </div>
   );
