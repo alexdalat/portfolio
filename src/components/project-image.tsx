@@ -1,64 +1,54 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-
-const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "gif"] as const;
+import { useEffect, useRef, useState } from "react";
 
 interface ProjectImageProps {
-  slug: string;
+  image?: string;
   title: string;
   className?: string;
   fallbackClassName?: string;
 }
 
 /**
- * Displays a project image from /projects/{slug}.png
+ * Displays a resolved project image
  * Falls back to showing title if image doesn't exist
  */
 export function ProjectImage({
-  slug,
+  image,
   title,
   className = "h-full w-full object-cover",
   fallbackClassName = "select-none text-xl font-semibold text-muted-foreground/50",
 }: ProjectImageProps) {
-  const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
-  const [extensionIndex, setExtensionIndex] = useState(0);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const imagePath = `/projects/${slug}.${IMAGE_EXTENSIONS[extensionIndex]}`;
+  const [loadedImage, setLoadedImage] = useState<string>();
+  const [failedImage, setFailedImage] = useState<string>();
+  const imageRef = useRef<HTMLImageElement>(null);
+  const isLoaded = image !== undefined && loadedImage === image;
+  const hasError = image === undefined || failedImage === image;
 
   useEffect(() => {
-    setStatus("loading");
-    setExtensionIndex(0);
-  }, [slug]);
+    const element = imageRef.current;
+    if (!image || !element?.complete) return;
 
-  useEffect(() => {
-    if (imgRef.current?.complete && imgRef.current?.naturalWidth > 0) {
-      setStatus("loaded");
+    if (element.naturalWidth > 0) {
+      setLoadedImage(image);
+    } else {
+      setFailedImage(image);
     }
-  }, [imagePath]);
-
-  const handleError = () => {
-    if (extensionIndex < IMAGE_EXTENSIONS.length - 1) {
-      setExtensionIndex((currentIndex) => currentIndex + 1);
-      return;
-    }
-
-    setStatus("error");
-  };
+  }, [image]);
 
   return (
     <>
-      {status !== "loaded" && (
+      {!isLoaded && (
         <span className={fallbackClassName}>{title}</span>
       )}
-      {status !== "error" && (
+      {!hasError && (
         <img
-          ref={imgRef}
-          src={imagePath}
+          ref={imageRef}
+          src={image}
           alt={title}
-          className={`${className} ${status === "loading" ? "absolute opacity-0" : ""}`}
-          onLoad={() => setStatus("loaded")}
-          onError={handleError}
+          className={`${className} ${isLoaded ? "" : "absolute opacity-0"}`}
+          onLoad={() => setLoadedImage(image)}
+          onError={() => setFailedImage(image)}
         />
       )}
     </>
@@ -69,34 +59,26 @@ export function ProjectImage({
  * Smaller variant for timeline thumbnails - shows initials on fallback
  */
 export function ProjectImageMini({
-  slug,
+  image,
   title,
   className = "h-full w-full object-cover",
 }: Omit<ProjectImageProps, "fallbackClassName">) {
-  const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
-  const [extensionIndex, setExtensionIndex] = useState(0);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const imagePath = `/projects/${slug}.${IMAGE_EXTENSIONS[extensionIndex]}`;
+  const [loadedImage, setLoadedImage] = useState<string>();
+  const [failedImage, setFailedImage] = useState<string>();
+  const imageRef = useRef<HTMLImageElement>(null);
+  const isLoaded = image !== undefined && loadedImage === image;
+  const hasError = image === undefined || failedImage === image;
 
   useEffect(() => {
-    setStatus("loading");
-    setExtensionIndex(0);
-  }, [slug]);
+    const element = imageRef.current;
+    if (!image || !element?.complete) return;
 
-  useEffect(() => {
-    if (imgRef.current?.complete && imgRef.current?.naturalWidth > 0) {
-      setStatus("loaded");
+    if (element.naturalWidth > 0) {
+      setLoadedImage(image);
+    } else {
+      setFailedImage(image);
     }
-  }, [imagePath]);
-
-  const handleError = () => {
-    if (extensionIndex < IMAGE_EXTENSIONS.length - 1) {
-      setExtensionIndex((currentIndex) => currentIndex + 1);
-      return;
-    }
-
-    setStatus("error");
-  };
+  }, [image]);
 
   const initials = title
     .split(" ")
@@ -106,19 +88,19 @@ export function ProjectImageMini({
 
   return (
     <>
-      {status !== "loaded" && (
+      {!isLoaded && (
         <span className="select-none text-[9px] font-semibold text-muted-foreground/30">
           {initials}
         </span>
       )}
-      {status !== "error" && (
+      {!hasError && (
         <img
-          ref={imgRef}
-          src={imagePath}
+          ref={imageRef}
+          src={image}
           alt={title}
-          className={`${className} ${status === "loading" ? "absolute opacity-0" : ""}`}
-          onLoad={() => setStatus("loaded")}
-          onError={handleError}
+          className={`${className} ${isLoaded ? "" : "absolute opacity-0"}`}
+          onLoad={() => setLoadedImage(image)}
+          onError={() => setFailedImage(image)}
         />
       )}
     </>

@@ -35,7 +35,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       >
         {/* Image / Title Placeholder */}
         <div className="relative flex h-36 items-center justify-center bg-muted/40">
-          <ProjectImage slug={project.slug} title={project.title} />
+          <ProjectImage image={project.image} title={project.title} />
           {hasGithub && (
             <div className="absolute right-2 top-2 rounded-md bg-white/80 p-1 opacity-0 transition-opacity group-hover:opacity-100">
               <ExternalLink className="size-3.5 text-muted-foreground" />
