@@ -32,7 +32,7 @@ export const projects: Project[] = [
     description:
       "Fine-tune an LLM on personal data to replicate writing style and thinking patterns.",
     category: "ML",
-    tags: ["Python", "ML/AI"],
+    tags: ["Python", "ML/AI", "LLM"],
     date: "2025-08-15",
     github: "https://github.com/alexdalat/project-replica",
   },
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     description:
       "An intelligent autocomplete system for the browser, powered by machine learning.",
     category: "ML",
-    tags: ["Python", "ML/AI"],
+    tags: ["Python", "ML/AI", "LLM"],
     date: "2025-10-25",
     github: "https://github.com/alexdalat/ai-autocomplete",
   },
@@ -228,23 +228,13 @@ export const projects: Project[] = [
   // ─── Extensions & Bots ────────────────────────────────────────────────
   {
     slug: "validator-v2",
-    title: "Validator Bot v2",
+    title: "Validator Bot",
     description:
-      "A Discord assistant bot for supporting staff in user validation.",
+      "A Discord assistant bot for supporting staff in user marketplace artist verification.",
     category: "Extensions & Bots",
     tags: ["JavaScript", "Discord", "Automation"],
     date: "2024-07-06",
     github: "https://github.com/alexdalat/validator-v2",
-  },
-  {
-    slug: "validator",
-    title: "Validator Bot",
-    description:
-      "Discord bot centralized towards supporting staff at validating users.",
-    category: "Extensions & Bots",
-    tags: ["JavaScript", "Discord", "Automation"],
-    date: "2020-08-20",
-    github: "https://github.com/alexdalat/validator",
   },
   {
     slug: "founders-api",

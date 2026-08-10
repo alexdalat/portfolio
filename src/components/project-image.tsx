@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 
+const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "gif"] as const;
+
 interface ProjectImageProps {
   slug: string;
   title: string;
@@ -20,14 +22,29 @@ export function ProjectImage({
   fallbackClassName = "select-none text-xl font-semibold text-muted-foreground/50",
 }: ProjectImageProps) {
   const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
+  const [extensionIndex, setExtensionIndex] = useState(0);
   const imgRef = useRef<HTMLImageElement>(null);
-  const imagePath = `/projects/${slug}.png`;
+  const imagePath = `/projects/${slug}.${IMAGE_EXTENSIONS[extensionIndex]}`;
+
+  useEffect(() => {
+    setStatus("loading");
+    setExtensionIndex(0);
+  }, [slug]);
 
   useEffect(() => {
     if (imgRef.current?.complete && imgRef.current?.naturalWidth > 0) {
       setStatus("loaded");
     }
-  }, []);
+  }, [imagePath]);
+
+  const handleError = () => {
+    if (extensionIndex < IMAGE_EXTENSIONS.length - 1) {
+      setExtensionIndex((currentIndex) => currentIndex + 1);
+      return;
+    }
+
+    setStatus("error");
+  };
 
   return (
     <>
@@ -41,7 +58,7 @@ export function ProjectImage({
           alt={title}
           className={`${className} ${status === "loading" ? "absolute opacity-0" : ""}`}
           onLoad={() => setStatus("loaded")}
-          onError={() => setStatus("error")}
+          onError={handleError}
         />
       )}
     </>
@@ -57,14 +74,29 @@ export function ProjectImageMini({
   className = "h-full w-full object-cover",
 }: Omit<ProjectImageProps, "fallbackClassName">) {
   const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
+  const [extensionIndex, setExtensionIndex] = useState(0);
   const imgRef = useRef<HTMLImageElement>(null);
-  const imagePath = `/projects/${slug}.png`;
+  const imagePath = `/projects/${slug}.${IMAGE_EXTENSIONS[extensionIndex]}`;
+
+  useEffect(() => {
+    setStatus("loading");
+    setExtensionIndex(0);
+  }, [slug]);
 
   useEffect(() => {
     if (imgRef.current?.complete && imgRef.current?.naturalWidth > 0) {
       setStatus("loaded");
     }
-  }, []);
+  }, [imagePath]);
+
+  const handleError = () => {
+    if (extensionIndex < IMAGE_EXTENSIONS.length - 1) {
+      setExtensionIndex((currentIndex) => currentIndex + 1);
+      return;
+    }
+
+    setStatus("error");
+  };
 
   const initials = title
     .split(" ")
@@ -86,7 +118,7 @@ export function ProjectImageMini({
           alt={title}
           className={`${className} ${status === "loading" ? "absolute opacity-0" : ""}`}
           onLoad={() => setStatus("loaded")}
-          onError={() => setStatus("error")}
+          onError={handleError}
         />
       )}
     </>
