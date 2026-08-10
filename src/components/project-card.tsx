@@ -24,11 +24,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     : {};
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.03 }}
-    >
+    <div>
       <CardWrapper
         {...linkProps}
         className="group flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-200 hover:border-border hover:shadow-md"
@@ -80,6 +76,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         </div>
       </CardWrapper>
-    </motion.div>
+    </div>
   );
 }

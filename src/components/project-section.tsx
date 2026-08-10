@@ -33,12 +33,9 @@ export function ProjectSection({
         onClick={() => setIsOpen(!isOpen)}
         className="group flex w-full items-center gap-2 py-2 text-left"
       >
-        <motion.div
-          animate={{ rotate: isOpen ? 0 : -90 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div>
           <ChevronDown className="size-4 text-muted-foreground" />
-        </motion.div>
+        </div>
         <h2 className="text-lg font-semibold text-foreground">{category}</h2>
         <span className="text-sm text-muted-foreground">
           ({projects.length})
@@ -47,11 +44,7 @@ export function ProjectSection({
 
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
+          <div
             className="overflow-hidden"
           >
             <div className="mt-3">
@@ -82,7 +75,7 @@ export function ProjectSection({
                 </div>
               )}
             </div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>

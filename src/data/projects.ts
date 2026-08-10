@@ -305,10 +305,10 @@ export const projects: Project[] = [
 
 export const categories: Category[] = [
   "ML",
-  "Websites",
-  "Vision & Graphics",
   "Tools",
   "Algorithms",
+  "Websites",
+  "Vision & Graphics",
   "Games",
 ];
 

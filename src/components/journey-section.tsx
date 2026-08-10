@@ -18,11 +18,7 @@ export function JourneySection() {
 
           <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
             {milestones.map((milestone, i) => (
-              <motion.div
-                key={milestone.id}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
+              <div
                 className="relative flex-1"
               >
                 {/* Dot on the line */}
@@ -93,7 +89,7 @@ export function JourneySection() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

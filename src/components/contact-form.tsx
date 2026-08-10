@@ -36,11 +36,7 @@ export function ContactForm() {
   return (
     <section id="contact" className="border-t border-border/40 py-20">
       <div className="mx-auto max-w-5xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
+        <div
           className="mx-auto max-w-md"
         >
           <h2 className="text-2xl font-bold tracking-tight text-foreground">
@@ -119,7 +115,7 @@ export function ContactForm() {
               )}
             </Button>
           </form>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
