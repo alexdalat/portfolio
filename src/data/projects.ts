@@ -4,8 +4,6 @@ export type Category =
   | "Vision & Graphics"
   | "Tools"
   | "Algorithms"
-  | "Finance"
-  | "Extensions & Bots"
   | "Games"
 ;
 
@@ -42,7 +40,7 @@ export const projects: Project[] = [
     description:
       "An intelligent autocomplete system for the browser, powered by machine learning.",
     category: "ML",
-    tags: ["Python", "ML/AI", "LLM"],
+    tags: ["Python", "Extension", "LLM"],
     date: "2025-10-25",
     github: "https://github.com/alexdalat/ai-autocomplete",
   },
@@ -92,24 +90,14 @@ export const projects: Project[] = [
 
   // ─── Games ─────────────────────────────────────────────────────────────
   {
-    slug: "conqueror-io",
-    title: "Conqueror.io",
+    slug: "web-conquerors",
+    title: "Web Conquerors",
     description:
       "A multiplayer real-time strategy game with territory conquest mechanics.",
     category: "Games",
-    tags: ["JavaScript", "Web", "Gaming"],
+    tags: ["JavaScript", "Web", "Games"],
     date: "2025-12-13",
     github: "https://github.com/alexdalat/conqueror.io",
-  },
-  {
-    slug: "karuta-auto",
-    title: "Karuta Auto",
-    description:
-      "Automated Karuta client using computer vision to identify and claim high-value cards.",
-    category: "Games",
-    tags: ["Python", "Computer Vision", "Automation"],
-    date: "2021-09-08",
-    github: "https://github.com/alexdalat/karuta-auto",
   },
 
   // ─── Tools ─────────────────────────────────────────────────────────────
@@ -129,7 +117,7 @@ export const projects: Project[] = [
     description:
       "Automatically parses and imports schedules (e.g., from syllabi) into a Notion Assignments database.",
     category: "Tools",
-    tags: ["Python", "API", "Automation"],
+    tags: ["Python", "Automation"],
     date: "2023-08-30",
     github: "https://github.com/alexdalat/notion-schedule",
   },
@@ -144,44 +132,25 @@ export const projects: Project[] = [
     github: "https://github.com/alexdalat/ios-virtual-loc",
   },
   {
-    slug: "loc-tracker",
-    title: "Location Tracker",
+    slug: "validator-v2",
+    title: "Validator Bot",
     description:
-      "High-accuracy location data personal tracking system.",
+      "A Discord assistant bot for supporting staff in user marketplace artist verification.",
     category: "Tools",
-    tags: ["Python", "Data"],
-    date: "2025-09-27",
-  },
-  {
-    slug: "video-journal-app",
-    title: "Video Journal App",
-    description:
-      "A personal video journaling application for recording and organizing entries.",
-    category: "Tools",
-    tags: ["Python", "Web"],
-    date: "2025-10-09",
-  },
-  {
-    slug: "eecs281-makefile",
-    title: "EECS281 Makefile",
-    description:
-      "Custom Makefile with automatic CAEN performance data collection for C++ projects.",
-    category: "Tools",
-    tags: ["C++", "Automation"],
-    date: "2024-06-24",
-    github: "https://github.com/alexdalat/EECS281-Makefile",
+    tags: ["JavaScript", "Automation"],
+    date: "2024-07-06",
+    github: "https://github.com/alexdalat/validator-v2",
   },
 
   // ─── Algorithms ────────────────────────────────────────────────────────
   {
-    slug: "i-see-the-light",
-    title: "I See the Light",
+    slug: "see-the-light",
+    title: "See the Light",
     description:
       "Processing high-accuracy, high-frequency location data to predict traffic light cycles.",
     category: "Algorithms",
-    tags: ["Python", "Data"],
+    tags: ["Python"],
     date: "2025-10-05",
-    github: "https://github.com/alexdalat/i-see-the-light",
   },
   {
     slug: "astar",
@@ -191,73 +160,10 @@ export const projects: Project[] = [
     category: "Algorithms",
     tags: ["JavaScript", "Simulation"],
     date: "2020-06-12",
-    github: "https://github.com/alexdalat/astar",
-  },
-
-  // ─── Finance ───────────────────────────────────────────────────────────
-  {
-    slug: "sports-arb-finder",
-    title: "Sports Arbitrage Finder",
-    description:
-      "Automated system for detecting and analyzing sports betting arbitrage opportunities.",
-    category: "Finance",
-    tags: ["Python", "Trading", "Automation"],
-    date: "2025-04-10",
-    github: "https://github.com/alexdalat/sports-arb-finder",
-  },
-  {
-    slug: "qlib-sentiment-analysis",
-    title: "QLib Sentiment Analysis",
-    description:
-      "Quantitative trading strategy enhanced with NLP-based sentiment analysis.",
-    category: "Finance",
-    tags: ["Python", "Trading", "ML/AI"],
-    date: "2025-12-04",
-    github: "https://github.com/alexdalat/qlib-sentiment-analysis-zh",
-  },
-  {
-    slug: "qlib-rl-trading",
-    title: "QLib RL Trading",
-    description:
-      "Reinforcement learning-based trading strategies using QLib and live broker integration.",
-    category: "Finance",
-    tags: ["Python", "Trading", "RL"],
-    date: "2025-08-03",
-  },
-
-  // ─── Extensions & Bots ────────────────────────────────────────────────
-  {
-    slug: "validator-v2",
-    title: "Validator Bot",
-    description:
-      "A Discord assistant bot for supporting staff in user marketplace artist verification.",
-    category: "Extensions & Bots",
-    tags: ["JavaScript", "Discord", "Automation"],
-    date: "2024-07-06",
-    github: "https://github.com/alexdalat/validator-v2",
-  },
-  {
-    slug: "founders-api",
-    title: "Founders API",
-    description:
-      "An API connected to the Founders server hosting panel with companion JS library.",
-    category: "Extensions & Bots",
-    tags: ["JavaScript", "API"],
-    date: "2019-09-14",
-    github: "https://github.com/alexdalat/founders-api",
+    github: "https://alexdalat.github.io/astar/",
   },
 
   // ─── Vision & Graphics ────────────────────────────────────────────────
-  {
-    slug: "cuda-tracer",
-    title: "CUDA Path Tracer",
-    description:
-      "A path tracer that computes and renders entirely on the GPU using CUDA.",
-    category: "Vision & Graphics",
-    tags: ["C++", "Graphics"],
-    date: "2020-04-18",
-    github: "https://github.com/alexdalat/cudaTracer",
-  },
   {
     slug: "pathtracer-cmake",
     title: "Path Tracer (C++)",
@@ -275,13 +181,13 @@ export const projects: Project[] = [
     category: "Vision & Graphics",
     tags: ["JavaScript", "Graphics"],
     date: "2020-01-12",
-    github: "https://github.com/alexdalat/path-tracer",
+    github: "https://alexdalat.github.io/path-tracer/",
   },
   {
     slug: "day-tracer",
     title: "Day Tracer",
     description:
-      "A path tracer written in a couple hours to demonstrate understanding of the topic.",
+      "A path tracer written in a day to demonstrate understanding of the topic.",
     category: "Vision & Graphics",
     tags: ["JavaScript", "Graphics"],
     date: "2021-11-23",
@@ -298,20 +204,10 @@ export const projects: Project[] = [
     github: "https://github.com/alexdalat/atrous",
   },
   {
-    slug: "contour-js",
-    title: "Contour.js",
-    description:
-      "Edge detection on images using a simple, interactive webpage.",
-    category: "Vision & Graphics",
-    tags: ["JavaScript", "Graphics"],
-    date: "2021-11-23",
-    github: "https://github.com/alexdalat/contour-js",
-  },
-  {
     slug: "opencv2-practice",
     title: "OpenCV2 Torso Detection",
     description:
-      "Real-time upper torso detection using a webcam with OpenCV.",
+      "Real-time upper torso detection via Haar Cascade with OpenCV.",
     category: "Vision & Graphics",
     tags: ["Python", "Computer Vision"],
     date: "2021-11-23",
@@ -327,32 +223,13 @@ export const projects: Project[] = [
     github: "https://github.com/alexdalat/OpenGLTerrain",
   },
   {
-    slug: "webgl-terrain",
-    title: "WebGL Terrain",
-    description:
-      "Block-based terrain generation rendered in the browser using WebGL.",
-    category: "Vision & Graphics",
-    tags: ["JavaScript", "Graphics", "Simulation"],
-    date: "2020-05-12",
-    github: "https://github.com/alexdalat/WebGLTerrain",
-  },
-  {
-    slug: "raycaster",
-    title: "Raycaster",
-    description: "A simple ray-caster rendered using HTML5 canvas.",
-    category: "Vision & Graphics",
-    tags: ["JavaScript", "Graphics"],
-    date: "2019-06-08",
-    github: "https://github.com/alexdalat/raycaster",
-  },
-  {
     slug: "galaxyjs",
     title: "Galaxy Simulator",
     description: "An interactive galaxy simulation in the browser.",
     category: "Vision & Graphics",
     tags: ["JavaScript", "Simulation"],
     date: "2020-06-22",
-    github: "https://github.com/alexdalat/galaxyjs",
+    github: "https://alexdalat.github.io/galaxyjs/",
   },
   {
     slug: "glgrav",
@@ -364,16 +241,6 @@ export const projects: Project[] = [
     github: "https://github.com/alexdalat/glGrav",
   },
   {
-    slug: "flock",
-    title: "Flock Simulator",
-    description:
-      "A boid-based flock simulation demonstrating emergent behavior.",
-    category: "Vision & Graphics",
-    tags: ["JavaScript", "Simulation"],
-    date: "2020-02-01",
-    github: "https://github.com/alexdalat/flock",
-  },
-  {
     slug: "swarm",
     title: "Swarm Robotics",
     description:
@@ -381,32 +248,23 @@ export const projects: Project[] = [
     category: "Vision & Graphics",
     tags: ["JavaScript", "Simulation"],
     date: "2020-02-02",
-    github: "https://github.com/alexdalat/swarm",
+    github: "https://alexdalat.github.io/swarm/",
   },
   {
     slug: "perlin-waves",
     title: "Perlin Waves",
     description:
-      "A mesmerizing Perlin noise visualization intended to please the eye.",
+      "A Perlin noise visualization to please the eye.",
     category: "Vision & Graphics",
     tags: ["JavaScript", "Graphics"],
     date: "2021-01-31",
     github: "https://github.com/alexdalat/perlin_waves",
   },
   {
-    slug: "threejs",
-    title: "Three.js Experiments",
-    description: "First experiments with Three.js and 3D in the browser.",
-    category: "Vision & Graphics",
-    tags: ["JavaScript", "Graphics"],
-    date: "2019-06-08",
-    github: "https://github.com/alexdalat/threejs",
-  },
-  {
     slug: "jsgravitation",
     title: "JS Gravitation",
     description:
-      "Newton's law of universal gravitation visualized using symplectic integration.",
+      "Newton's law of universal gravitation with symplectic integration.",
     category: "Vision & Graphics",
     tags: ["JavaScript", "Simulation"],
     date: "2020-05-23",
@@ -420,33 +278,24 @@ export const projects: Project[] = [
     category: "Vision & Graphics",
     tags: ["JavaScript", "Simulation"],
     date: "2019-06-08",
-    github: "https://github.com/alexdalat/map-generator",
+    github: "https://alexdalat.github.io/map-generator/",
   },
 
   // ─── Websites ──────────────────────────────────────────────────────────
   {
-    slug: "chat-rooms",
-    title: "Chat Rooms",
-    description: "A bare, simple real-time chat room application.",
-    category: "Websites",
-    tags: ["JavaScript", "Web"],
-    date: "2019-06-08",
-    github: "https://github.com/alexdalat/chat-rooms",
-  },
-  {
     slug: "mcpanel",
     title: "MC Panel",
     description:
-      "An all-in-one PHP Minecraft server management panel.",
+      "An all-in-one Minecraft server management panel.",
     category: "Websites",
-    tags: ["Web", "Gaming"],
+    tags: ["Web", "Games"],
     date: "2020-05-15",
     github: "https://github.com/alexdalat/mcpanel",
   },
   {
     slug: "cafe-chronicles",
     title: "Café Chronicles",
-    description: "Discover, rate, and find your perfect local coffee shop. Explore top-rated cafes and compare your taste with others.",
+    description: "Discover, rate, and share your perfect local coffee shop.",
     category: "Websites",
     tags: ["JavaScript", "Web"],
     date: "2025-11-13",
@@ -460,8 +309,6 @@ export const categories: Category[] = [
   "Vision & Graphics",
   "Tools",
   "Algorithms",
-  "Finance",
-  "Extensions & Bots",
   "Games",
 ];
 
