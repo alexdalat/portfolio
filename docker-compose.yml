@@ -5,6 +5,8 @@ services:
       - "${PORT_BIND:-3000}:3000"
     volumes:
       - /home/alex/syncthing/Personal/Work/Resume/:/app/public/Resume/:ro
+      # mount symlink location too, if applicable (ex:)
+      # - /home/alex/syncthing/Personal/Work/Resume/:/home/alex/syncthing/Personal/Work/Resume/:ro
     environment:
       - NODE_ENV=production
     restart: unless-stopped
