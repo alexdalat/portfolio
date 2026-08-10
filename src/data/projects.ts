@@ -38,33 +38,13 @@ export const projects: Project[] = [
   },
   {
     slug: "ai-autocomplete",
-    title: "AI Autocomplete",
+    title: "AI Autocomplete Extension",
     description:
       "An intelligent autocomplete system for the browser, powered by machine learning.",
     category: "ML",
     tags: ["Python", "ML/AI"],
     date: "2025-10-25",
     github: "https://github.com/alexdalat/ai-autocomplete",
-  },
-  {
-    slug: "digit-classifier-pytorch",
-    title: "Digit Classifier (PyTorch)",
-    description:
-      "Handwritten digit classification using PyTorch neural networks.",
-    category: "ML",
-    tags: ["Python", "ML/AI"],
-    date: "2023-01-31",
-    github: "https://github.com/alexdalat/digit-classifier-pytorch",
-  },
-  {
-    slug: "digit-classifier-tf",
-    title: "Digit Classifier (TensorFlow)",
-    description:
-      "Handwritten digit classification model trained on MNIST dataset.",
-    category: "ML",
-    tags: ["Python", "ML/AI"],
-    date: "2022-12-28",
-    github: "https://github.com/alexdalat/digit-classifier",
   },
   {
     slug: "digit-denoiser",
@@ -76,26 +56,6 @@ export const projects: Project[] = [
     github: "https://github.com/alexdalat/digit-denoiser",
   },
   {
-    slug: "traffic-signs-v1",
-    title: "Traffic Sign Detection",
-    description:
-      "TensorFlow model to detect traffic signs for autonomous vehicle path planning.",
-    category: "ML",
-    tags: ["Python", "ML/AI", "Computer Vision"],
-    date: "2022-11-30",
-    github: "https://github.com/alexdalat/traffic-signs-v1",
-  },
-  {
-    slug: "yolov3-impl",
-    title: "YOLOv3 Implementation",
-    description:
-      "Real-time object detection using YOLOv3 for autonomous vehicle path mapping.",
-    category: "ML",
-    tags: ["Python", "ML/AI", "Computer Vision"],
-    date: "2022-11-30",
-    github: "https://github.com/alexdalat/yolov3-impl",
-  },
-  {
     slug: "raytracer-denoiser",
     title: "Raytracer Denoiser",
     description:
@@ -104,16 +64,6 @@ export const projects: Project[] = [
     tags: ["Python", "ML/AI", "Graphics"],
     date: "2023-02-15",
     github: "https://github.com/alexdalat/raytracer-denoiser",
-  },
-  {
-    slug: "metrics-tracker",
-    title: "Metrics Tracker",
-    description:
-      "A versatile Python module for logging and visualizing metrics over time.",
-    category: "Tools",
-    tags: ["Python", "Data"],
-    date: "2024-06-14",
-    github: "https://github.com/alexdalat/MetricsTracker",
   },
 
   // ─── ML > RL ───────────────────────────────────────────────────────────
