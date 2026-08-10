@@ -108,7 +108,7 @@ export function Portfolio({ projects }: PortfolioProps) {
       <JourneySection />
 
       {/* Projects */}
-      <section className="pb-16">
+      <section className="pb-10">
         <div className="mx-auto max-w-5xl px-6">
           <div className="mb-6 flex items-end justify-between">
             <div>
@@ -177,15 +177,6 @@ export function Portfolio({ projects }: PortfolioProps) {
       </section>
 
       <ContactForm />
-
-      {/* Footer */}
-      <footer className="border-t border-border/40 py-8">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Alex Dalat
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

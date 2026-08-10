@@ -34,7 +34,7 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="border-t border-border/40 py-20">
+    <section id="contact" className="border-t border-border/40 py-15">
       <div className="mx-auto max-w-5xl px-6">
         <div
           className="mx-auto max-w-md"
