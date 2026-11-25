@@ -10,8 +10,7 @@ export function Hero() {
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             I build things that interest me across machine learning, graphics, full-stack
-            development, and more. Each project has grown my curiosity and built my skills. Vibe-coded
-            projects not included. I hope you enjoy :)
+            development, and more. Each project has grown my curiosity and built my skills. I hope you enjoy :)
           </p>
         </div>
       </div>
